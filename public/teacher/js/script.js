@@ -6,23 +6,24 @@ $(document).ready(function (){
     $("#title, #search, footer").addClass('animated bounceInUp');
 });
 
+var template = "";
+
 $("#search").keyup(function (e){
   if(e.keyCode == "13"){
 
-   $("#card-div").html("<center><div style=\"margin-bottom: 20px;\" class=\"loader-inner ball-grid-pulse\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div style=\"margin-bottom: 60px;\"></div></center>");
+  //  $("#card-div").html("<center><div style=\"margin-bottom: 20px;\" class=\"loader-inner ball-grid-pulse\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div style=\"margin-bottom: 60px;\"></div></center>");
 
 
-    // $.ajax({
-    //   url: nodeHost + "/query",
-    //   data: { q: $('#search').val() },
-    //   dataType: 'html',
-    //   cache: false,
-    // })
-    // .done(function (msg){
-    //   if(msg == "session expired")
-    //     window.location = nodeHost + "/login";
-    //   else
-    //     $("#card-div").html(msg);
-    // });
+    $.ajax({
+      url: "/api",
+      data: { q: $('#search').val() },
+      dataType: 'json',
+      cache: false,
+    })
+    .done(function (msg){
+      $("#card-div").html(template);
+
+    });
+
   }
 });
