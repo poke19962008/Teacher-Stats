@@ -7,11 +7,7 @@ mongoURI = "mongodb://127.0.0.1:27017"
 try:
 	con = pymongo.MongoClient(host=mongoURI, port=27017)
 	db = con['teacher']
-	for tuple in data:
-		db.main.insert(data[tuple])
+	for teacher in data:
+		db.main.insert({ 'name': data[teacher] })
 except:
 	print "[Error] Cannot connect with mongodb."
-
-
-
-
