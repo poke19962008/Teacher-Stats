@@ -1,0 +1,85 @@
+body {
+
+  background: #EDE574; 
+  background: -webkit-linear-gradient(to left, #EDE574 , #E1F5C4);
+  background: linear-gradient(to left, #EDE574 , #E1F5C4);
+
+  color: white;
+  font-family: "Lato", latin;
+  margin-top: 100px;
+}
+
+#title, .container, footer {
+  visibility: hidden;
+}
+
+h1 {
+  font-size: 75px;
+  font-weight: normal;
+}
+
+h1 span {
+  font-size: 25px;
+  font-weight: lighter;
+  color: #f9a866;
+}
+
+footer{
+  margin-top: 10px;
+  margin-bottom: 5px;
+
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.container {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  height: auto;
+}
+
+#search-div {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  height: 50px;
+}
+
+#search {
+  height: 55px;
+
+  color: #545657;
+
+  font-weight: 200;
+  font-size: 22px;
+}
+
+#card-div {
+  margin-top: 40px;
+  margin-bottom: auto;
+}
+
+#login-inp {
+  height: 55px;
+
+  color: #545657;
+
+  font-weight: 200;
+  font-size: 22px;
+}
+
+#login-div {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  height: auto;
+}
+
+#login-div button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  background-color: #ffffff;
+  color: #727271;
+
+  height: 40px;
+  width: 110px;
+}
