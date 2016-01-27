@@ -3,6 +3,25 @@ Applied analytical datasets of teacher's performance from the student records. C
 
 ![image] (https://raw.githubusercontent.com/poke19962008/Teacher-Stats/master/git-res/s1.png)
 
+## How to run
+
+### Setting up MongoDB
+
+Set up Mongo DataBase named **teacher**
+
+```
+$ cd parser
+$ python mongoInserter.py
+```
+
+### Setting up node servers
+
+This will start the servers on http://localhost:3800/. Access from **http://localhost:3800/teacher**.
+
+```
+$ node index.js
+```
+
 ## LICENSE
 
 Copyright © 2015 SAYAN DAS
