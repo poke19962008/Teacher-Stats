@@ -1,5 +1,5 @@
 # Teacher-Statistics
-Applied analytical datasets of teacher's performance from the student records. Contains all the teachers who were in 3rd semester of Computer Science[II Year & III Year], Aerospace[II Year], Automobile[II Year], Civil[II Year], Electronics and Communication[II Year], Electronics and Electrical[II Year], Mechanical[II Year] and Mechatronics[II Year].
+Applied analytical datasets of teacher's performance from the student records. Contains all the teachers who were in 3rd semester of **Computer Science**[II Year & III Year], **Aerospace**[II Year], **Automobile**[II Year], **Civil**[II Year], **Electronics and Communication**[II Year], **Electronics and Electrical**[II Year], **Mechanical**[II Year] and **Mechatronics[II Year]**.
 
 ![image] (https://raw.githubusercontent.com/poke19962008/Teacher-Stats/master/git-res/s1.png)
 
