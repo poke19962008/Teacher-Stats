@@ -15,8 +15,6 @@ app.get('/teacher/api', function(req,res){
       'name': {
         $regex: query,
         $options: 'i'
-      },{
-        _id: false
       }
     }).limit(limit);
 
