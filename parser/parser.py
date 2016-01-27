@@ -33,16 +33,10 @@ import pymongo, json
 			}
 		}
 '''
-
-data = json.loads(open('test.json', 'r').read())
-
-mongoURI = "mongodb://127.0.0.1:27017"
-try:
-	con = pymongo.MongoClient(host=mongoURI, port=27017)
-	db = con['zoho_swe']
-	connected = True
-except:
-	print "[Error] Cannot connect with mongodb."
+# Uncomment if older data is present
+# data = json.loads(open('data.json', 'r').read())
+data = {}
+dbsName = ["zoho", "zoho_aero", "zoho_auto", "zoho_civil", "zoho_cse_iii", "zoho_ece", "zoho_eee", "zoho_mech", "zoho_mechtra", "zoho_swe"]
 
 def rangeParser(student, data, sub, key, factor):
 	if student[sub][key]*factor < 10:
@@ -99,7 +93,7 @@ def compute(student, sub, data):
 	data[faculty][sub]['student'] = data[faculty][sub]['student'] + 1
 
 	return data
-	
+
 def setZero(data, faculty, sub, key):
 	data[faculty][sub][key] = {}
 	data[faculty][sub][key]['0-10'] = 0
@@ -127,32 +121,40 @@ def init(data, faculty, sub, isPrac):
 	for key in keys:
 		data = setZero(data, faculty, sub, key)
 
-	data[faculty][sub]['student'] = 0 
+	data[faculty][sub]['student'] = 0
 	data = setZero(data, faculty, sub, 'attendance')
-	return data			
+	return data
 
-counter = 50
-for student in db.main.find():
-	student = student['course']
-	for sub in  student:
-		faculty =  student[sub]['faculty']
-		if not data.has_key(faculty):
-			data[faculty] = {}
-			if not data[faculty].has_key(sub):
-				isPrac = False
-				if student[sub]['pt'] != '-':
-					isPrac = True
-				data = init(data, faculty, sub, isPrac)
+for dbName in dbsName:
+	mongoURI = "mongodb://127.0.0.1:27017"
+	try:
+		con = pymongo.MongoClient(host=mongoURI, port=27017)
+		db = con[dbName]
+		connected = True
+	except:
+		print "[Error] Cannot connect with mongodb."
+
+	for student in db.main.find():
+		student = student['course']
+		for sub in  student:
+			faculty =  student[sub]['faculty']
+			if not data.has_key(faculty):
+				data[faculty] = {}
+				if not data[faculty].has_key(sub):
+					isPrac = False
+					if student[sub]['pt'] != '-':
+						isPrac = True
+					data = init(data, faculty, sub, isPrac)
+					data = compute(student, sub, data)
+			else:
+				if not data[faculty].has_key(sub):
+					isPrac = False
+					if student[sub]['pt'] != '-':
+						isPrac = True
+					data = init(data, faculty, sub, isPrac)
+					data = compute(student, sub, data)
 				data = compute(student, sub, data)
-		else:
-			if not data[faculty].has_key(sub):
-				isPrac = False
-				if student[sub]['pt'] != '-':
-					isPrac = True
-				data = init(data, faculty, sub, isPrac)
-				data = compute(student, sub, data)
-			data = compute(student, sub, data)
-			
-file = open('test.json', "w")
+	print "[SUCCESS] Parsed " + dbName
+
+file = open('data.json', "w")
 file.write(json.dumps(data, indent=2))
-
