@@ -1,6 +1,6 @@
 body {
 
-  background: #EDE574; 
+  background: #EDE574;
   background: -webkit-linear-gradient(to left, #EDE574 , #E1F5C4);
   background: linear-gradient(to left, #EDE574 , #E1F5C4);
 
@@ -56,30 +56,13 @@ footer{
 #card-div {
   margin-top: 40px;
   margin-bottom: auto;
+  align-items: center;
 }
 
-#login-inp {
-  height: 55px;
-
-  color: #545657;
-
-  font-weight: 200;
-  font-size: 22px;
-}
-
-#login-div {
+.graph-title {
   margin-top: 40px;
-  margin-bottom: 20px;
-  height: auto;
-}
-
-#login-div button {
-  margin-top: 20px;
-  margin-bottom: 20px;
-
-  background-color: #ffffff;
-  color: #727271;
-
-  height: 40px;
-  width: 110px;
+  font-size: 20px;
+  color: #939393;
+  text-align:center;
+  text-transform: uppercase;
 }
