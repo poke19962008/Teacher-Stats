@@ -1,0 +1,35 @@
+{
+  "name": "teacher-stats",
+  "version": "1.0.0",
+  "description": "Server for the Teacher Statistics",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-mongo": "^0.8.2",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.14.0",
+    "express-session": "^1.12.1",
+    "fs": "^0.0.2",
+    "jade": "^1.11.0",
+    "mongodb": "^2.2.11",
+    "winston": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poke19962008/Teacher-Stats.git"
+  },
+  "keywords": [
+    "statistics",
+    "visualisation"
+  ],
+  "author": "SAYAN DAS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/poke19962008/Teacher-Stats/issues"
+  },
+  "homepage": "https://github.com/poke19962008/Teacher-Stats#readme"
+}
